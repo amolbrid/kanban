@@ -1,0 +1,29 @@
+!!!
+%html
+  %head
+    %title Github Kanban
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .container-fluid
+      .row.app-header-bg
+        .col-sm-6
+          %h4
+            = yield(:page_header)
+        .col-sm-5
+          = yield(:tool_bar)
+
+        .col-sm-1
+          - if current_user
+            = link_to signout_path, class: 'pull-right', title: 'Signout', rel: "tooltip-left" do
+              %img#user.round-profile-img{:src => "#{current_user.image_url}", :width => "32", :height => "32"}
+
+    #main-container.container-fluid
+      = yield
+:javascript
+  $(document).ready(function(){
+    $("[rel=tooltip-left]").tooltip({ placement: 'left'});
+    $("[rel=tooltip-top]").tooltip({ placement: 'top'});
+  });
+

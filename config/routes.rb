@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  root to: 'session#new'
+  get '/auth/:provider/callback', to: 'session#create'
+  get "/signout", to: 'session#destroy'
+
+
+  resources :boards do
+    member do
+      get 'copy'
+    end
+  end
+
+  get 'kb/:id' => 'kanbans#board', as: :kanban_board
+  post 'kb/:id/move' => 'kanbans#move_card', as: :move_card
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

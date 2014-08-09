@@ -13,4 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap/tooltip
+//= require bootstrap/dropdown
+//= require jquery_nested_form
+//= require react
+//= require rgbcolor
+//= require lodash.min
+//= require mousetrap.min
 //= require_tree .

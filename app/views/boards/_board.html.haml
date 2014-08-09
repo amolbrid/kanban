@@ -1,0 +1,66 @@
+.form-group
+  = f.label :name, class: 'col-sm-2 control-label'
+  .col-sm-3
+    = f.text_field :name, class:'form-control'
+.form-group
+  = f.label :milestone, class: 'col-sm-2 control-label'
+  .col-sm-2
+    = f.text_field :milestone, class:'form-control'
+.form-group
+  .col-sm-offset-2.col-sm-10
+    .checkbox
+      = f.label :is_public do
+        = f.check_box :is_public
+        Make this board public
+
+%fieldset
+  %legend
+    Github Repos
+  #repos
+    = f.fields_for :repositories do |repo_form|
+      .form-group
+        = repo_form.label :url, "Repo name", class: 'col-sm-2 control-label'
+        .col-sm-4
+          = repo_form.text_field :url, class: 'form-control', placeholder: 'e.g. collectivemedia/reachui'
+        .col-sm-3
+          = repo_form.link_to_remove "X", class:'btn btn-danger'
+.form-group
+  .col-sm-offset-2.col-sm-10
+    = f.link_to_add "Add a repo", :repositories, data:{ target: "#repos" }, class:'btn btn-default'
+
+%fieldset
+  %legend
+    Kanban Board Stages
+  #stages
+    = f.fields_for :stages do |stage_form|
+      .form-group
+        = stage_form.label :github_label, "Stage", class: 'col-sm-2 control-label'
+        .col-sm-2
+          = stage_form.text_field :github_label, class: 'form-control', placeholder: 'Github label name'
+        .col-sm-2
+          = stage_form.text_field :name, class: 'form-control', placeholder: 'Stage name'
+          = stage_form.hidden_field :ui_sort_order, class: 'form-control ui-sort', placeholder: 'Sort order'
+        .col-sm-3
+          = stage_form.link_to_remove "X", class:'btn btn-danger'
+.form-group
+  .col-sm-offset-2.col-sm-10
+    = f.link_to_add "Add a stage", :stages, data:{ target: "#stages" }, class:'btn btn-default'
+
+%hr
+
+:javascript
+  $(function() {
+
+    $(document).on('nested:fieldAdded:stages', function(event) {
+      var field = event.field.find(".ui-sort");
+      field[0].value = ++count;
+
+      console.log(field);
+    });
+
+    var elms = $(".ui-sort");
+    var count = 0;
+    if(elms) {
+      count = parseInt(elms[elms.length-1].value);
+    }
+  });

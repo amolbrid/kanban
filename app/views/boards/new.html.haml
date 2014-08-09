@@ -1,0 +1,20 @@
+= content_for :page_header do
+  NEW BOARD
+
+%div
+  &nbsp;
+
+= nested_form_for @board, html: {class: 'form-horizontal', role: 'form'} do |form|
+  - if @board.errors.any?
+    .form-error
+      %h4
+        Error(s) creating board:
+      %ul
+        - @board.errors.full_messages.each do |msg|
+          %li
+            = msg
+
+  = render "board", f: form
+  = form.submit "Create", class: 'btn btn-success'
+  &nbsp;
+  = link_to 'Close', boards_path, class:'btn btn-default'

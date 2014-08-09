@@ -1,0 +1,18 @@
+- bboards.each_with_index do |board, index|
+  .col-sm-6
+    .board-block
+      .board-left.pull-left
+        %img#user.round-profile-img{:src => "#{board.user.image_url}",
+          :width => "32", :height => "32", title: "#{board.user.name}", rel: "tooltip-right"}
+        .actions
+          = link_to board_path(board), title: 'Edit Board', rel: "tooltip-right" do
+            = icon("edit")
+          = link_to copy_board_path(board), title: 'Copy Board', rel: "tooltip-right" do
+            = icon("copy")
+          / = link_to board_path(board), confirm: "Are you sure?", method: :delete, title: 'Delete Board' do
+          /   = icon("times")
+      %div
+        %h4
+          / = link_to(board.name.strip, kanban_board_path(board.name), class: 'page-title')
+        %span
+          = board.milestone

@@ -1,0 +1,27 @@
+= content_for :page_header do
+  EDIT BOARD
+
+%div
+  &nbsp;
+- if flash[:error]
+  .form-error
+    = flash[:error]
+= nested_form_for @board, html: {class: 'form-horizontal', role: 'form'} do |form|
+  - if @board.errors.any?
+    .form-error
+      %h4
+        Error(s) saving board:
+      %ul
+        - @board.errors.full_messages.each do |msg|
+          %li
+            = msg
+
+  = render "board", f: form
+  = form.submit "Save", class: 'btn btn-success'
+  &nbsp;
+  = link_to 'Delete', board_path(@board), confirm: "Are you sure?", method: :delete, title: 'Delete Board', class: 'btn btn-danger'
+  &nbsp;
+  = link_to 'Close', session[:return_to], class:'btn btn-default'
+
+&nbsp;
+&nbsp;

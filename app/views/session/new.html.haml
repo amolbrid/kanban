@@ -1,0 +1,14 @@
+.row
+  .col-md-12
+    %h1.head-text
+      GitHub Issues Kanban View
+    .sign-in-with-github
+      - if current_user
+        = "Welcome #{current_user.name}"
+      - else
+        %a.btn.btn-default.btn-lg{href: "/auth/github"}
+          = image_tag("GitHub_Mark_32px.png")
+          Sign in with Github
+
+        -# = link_to "Sign in with Github", "/auth/github", class: 'btn btn-default' do
+        -#   = image_tag("GitHub_Mark_64px.png")

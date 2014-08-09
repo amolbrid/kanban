@@ -1,0 +1,18 @@
+- bboards.each_with_index do |board, index|
+  .board-list-cell
+    .row
+      .col-md-1
+        %img#user.round-rect-img{:src => "#{board.user.image_url}",
+            :width => "32", :height => "32", title: "#{board.user.name}", rel: "tooltip-top"}
+      .col-md-11
+        .name
+          = link_to(board.name.strip, board_path(board))
+        .clearfix
+        .actions
+          = link_to edit_board_path(board), class: 'action-button' do
+            = icon("edit")
+            Edit
+          &nbsp;
+          = link_to copy_board_path(board), class: 'action-button' do
+            = icon("copy")
+            Duplicate

@@ -12,4 +12,34 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
+
+// @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,300italic,600,600italic);
+@import "bootstrap";
+
+// body {
+//   font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+// }
+
+.round-profile-img {
+  border-radius: 22px;
+  border: 2px solid rgba(227, 225, 225, 1);
+  margin-top: 4px;
+}
+
+.app-header-bg {
+  background-color: #f3f3f3; //#DDE2E5;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.head-text {
+  margin-top: 150px;
+  text-align: center;
+  font-size: 60px;
+}
+
+.sign-in-with-github {
+  text-align: center;
+  margin-top: 35px;
+}

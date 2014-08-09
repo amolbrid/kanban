@@ -1,0 +1,182 @@
+.board-col-header {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+  color: #888;
+
+  span {
+    padding: 5px;
+  }
+}
+
+.round-rect-img {
+  border-radius: 7px;
+  border: 2px solid #d1d1d1;
+}
+
+.board-list {
+  padding: 10px 20px;
+}
+
+.board-list-cell {
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+
+  &:hover {
+    background-color: #eee;
+  }
+
+  .name {
+    font-size: 18px;
+    font-weight: bold;
+    a {
+      color: #333;
+    }
+  }
+
+  .actions {
+    margin-top: 10px;
+    padding: 5px 0;
+
+    .action-button {
+      border-radius: 3px;
+      text-decoration: none;
+      color: #333;
+      padding: 5px 3px;
+
+      &:hover {
+        background-color: #aaa;
+      }
+    }
+  }
+}
+
+.board-left {
+  width: 42px;
+  color: #333;
+  background-color: #f2f2f2;
+  height: 98px;
+  padding: 5px;
+  margin-right: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  border: 1px solid #F2F2F2;
+
+  .actions {
+    text-align: center;
+
+    a {
+      color: #333;
+      // background-color:#666;
+      padding: 0 8px;
+      display: block;
+      margin-top: 5px;
+
+      &:hover {
+        background-color: #E25F5E;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 2px;
+      }
+    }
+  }
+}
+
+.board-block {
+  color: #666;
+  height: 100px;
+  background-color: #fefefe;
+  padding: 0 10px 0 0;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  margin-top: 40px;
+
+  h4 > a {
+    // color: #D9534F;
+    color: #333;
+    text-transform: uppercase;
+  }
+
+  span {
+    padding-left: 6px;
+  }
+
+  // .actions {
+  //   position: absolute;
+  //   bottom: 5px;
+  //   padding-left: 6px;
+
+  //   a {
+  //     padding: 3px 7px;
+  //     color: #999;
+  //     margin-left: -7px;
+
+  //     &:hover {
+  //       background-color: #e6e6e6;
+  //       border-radius: 3px;
+  //       color: #666;
+  //       text-decoration: none;
+  //     }
+  //   }
+  // }
+}
+
+// .board-block {
+//   color: #666;
+//   height: 100px;
+//   background-color: #FCFCFC;
+//   padding: 3px 10px;
+//   border-left: 2px solid #999;
+//   margin-bottom: 38px;
+
+//   h4 > a {
+//     // color: #D9534F;
+//     color: #333;
+//     text-transform: uppercase;
+//   }
+
+//   .actions {
+//     position: absolute;
+//     bottom: 42px;
+//     padding-left: 6px;
+
+//     a {
+//       padding: 3px 7px;
+//       color: #999;
+
+//       &:hover {
+//         background-color: #e6e6e6;
+//         border-radius: 3px;
+//         color: #666;
+//         text-decoration: none;
+//       }
+//     }
+//   }
+// }
+
+.form-error {
+  margin: 20px 0px;
+  padding: 20px;
+  border-left: 3px solid #EEE;
+  background-color: #FDF7F7;
+  border-color: #D9534F;
+
+  h4 {
+    color: #D9534F;
+    margin-top: 0px;
+    margin-bottom: 5px;
+  }
+}
+
+.board-table {
+  color: #333;
+  width: 100%;
+
+  tr {
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  a {
+    color: #333;
+  }
+}
