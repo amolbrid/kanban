@@ -285,21 +285,17 @@ $link-hover-color: #fff;
       }
 
       .card-blocker {
-        background-color: #E11D21;
-        border: 1px solid #FF2D31;
+        background-color: #F5E3E3;
+        border: 1px solid #E4C6C6;
 
         .card-header {
-          color: #FFBCBC;
-          border-bottom: 1px solid #EF7070;
+          color: #8F8080;
+          border-bottom: 1px solid #E4C6C6;
 
           a, .next-stage {
-            color: #FFBCBC;
-            border: 1px solid #EF7070;
+            color: #8F8080;
+            border: 1px solid #E4C6C6;
           }
-        }
-
-        .card-title {
-          color: #fff;
         }
       }
     }
