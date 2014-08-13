@@ -28,7 +28,7 @@ class BoardsController < ApplicationController
     @board = Board.new(board_params)
     @board.user = current_user
     if @board.save
-      redirect_to kanban_board_path(@board)
+      redirect_to board_path(@board)
     else
       render :new
     end
@@ -48,7 +48,7 @@ class BoardsController < ApplicationController
   def update
     @board = Board.friendly.find(params[:id])
     @board.update_attributes(board_params)
-    redirect_to session[:return_to] || kanban_board_path(@board)
+    redirect_to session[:return_to] || board_path(@board)
   end
 
   def destroy
