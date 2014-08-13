@@ -1,2 +1,9 @@
 :javascript
-  renderBoard("#{kanban_board_path(@board.slug)}", "#{edit_board_path(@board)}", "#{current_user.image_url}");
+  window.APP_URLS = {
+    "BOARD" : "#{kanban_board_path(@board.slug)}",
+    "EDIT_BOARD": "#{edit_board_path(@board)}",
+    "MOVE_CARD" : "#{move_card_path(@board.slug)}",
+    "CURRENT_USER_IMG" : "#{current_user.image_url}"
+  };
+
+  renderBoard();

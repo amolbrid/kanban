@@ -45,7 +45,7 @@ class KanbansController < ApplicationController
   end
 
   def move_card
-    @board = Board.friendly.find(params[:id]).first
+    @board = Board.friendly.find(params[:id])
 
     client = Octokit::Client.new(access_token: current_user.token)
     issue = client.issue(params[:repo_url], params[:number])

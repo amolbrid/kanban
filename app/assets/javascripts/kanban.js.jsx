@@ -425,7 +425,7 @@ var Board = React.createClass({
 
     this.setState(_.merge(this.state, {data: this.state.data}));
 
-    var url = location.pathname + "/move",
+    var url = window.APP_URLS.MOVE_CARD,
       data = "number=" + cardToMove.number +
         "&next_stage=" + targetStage.github_label +
         "&prev_stage=" + senderStage.github_label +
@@ -461,7 +461,7 @@ var Board = React.createClass({
 
   _loadCards: function() {
     $.ajax({
-      url: this.props.url,
+      url: window.APP_URLS.BOARD,
       dataType: 'json',
       success: function(data) {
         var newState = _.merge(this.state, {data: data, loading: false, forceSync: ''});
@@ -552,7 +552,7 @@ var Board = React.createClass({
               &nbsp;Sync
             </button>
 
-            <a href={this.props.edit_url} className="btn pull-right toolbar-button">
+            <a href={window.APP_URLS.EDIT_BOARD} className="btn pull-right toolbar-button">
               <i className="fa fa-edit"/>
               &nbsp;Edit Board
             </a>
@@ -560,7 +560,7 @@ var Board = React.createClass({
 
           <div className="col-sm-1">
             <a href="/signout" className="pull-right" title="Signout" rel="tooltip-left">
-              <img className="round-profile-img" src={this.props.user_image} width="32" height="32"></img>
+              <img className="round-profile-img" src={window.APP_URLS.CURRENT_USER_IMG} width="32" height="32"></img>
             </a>
           </div>
         </div>
@@ -588,7 +588,6 @@ var Board = React.createClass({
   }
 });
 
-function renderBoard(url, edit_url, user_image) {
-  React.renderComponent(<Board url={url} edit_url={edit_url} user_image={user_image}/>,
-    document.getElementById('main-container'));
+function renderBoard() {
+  React.renderComponent(<Board />, document.getElementById('main-container'));
 }
