@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.4'
+gem 'rails', '4.2.3'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -26,7 +26,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-gem 'omniauth-github', '~> 1.1.2'
+gem 'omniauth-github'
 
 gem 'haml', '~> 4.0.5'
 gem 'haml-rails', '~> 0.5.3'
@@ -58,4 +58,3 @@ gem 'capistrano3-unicorn', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
