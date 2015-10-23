@@ -10,7 +10,7 @@ class Board < ActiveRecord::Base
   accepts_nested_attributes_for :repositories, allow_destroy: true
   accepts_nested_attributes_for :stages, allow_destroy: true
 
-  validates :name, :milestone, presence: true
+  validates :name, presence: true
   validates :name, uniqueness: { scope: :user, case_sensitive: false }
 
   def user_and_name
