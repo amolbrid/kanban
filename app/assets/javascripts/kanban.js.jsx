@@ -454,7 +454,7 @@ var Board = React.createClass({
         if(indexToRemove > -1) targetStage.cards.splice(indexToRemove, 1);
 
         this.setState(_.merge(this.state, {data: this.state.data}));
-        console.error(status, err.toString());
+        console.log(status, err.toString());
       }.bind(this)
     });
   },
@@ -468,7 +468,7 @@ var Board = React.createClass({
         this.setState(newState);
       }.bind(this),
       error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
+        console.log(this.props.url, status, err.toString());
       }.bind(this)
     });
   },
