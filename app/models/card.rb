@@ -9,6 +9,15 @@ class Card
   end
 
   def attributes
-    {title: nil, number: nil, html_url: nil, labels: nil, stage: nil, assignee: nil, assignee_avatar_url:nil, repo_url: nil}
+    {
+      title: nil,
+      number: nil,
+      html_url: nil,
+      labels: nil,
+      stage: nil,
+      assignee: nil,
+      assignee_avatar_url:nil,
+      repo_url: nil
+    }
   end
 end

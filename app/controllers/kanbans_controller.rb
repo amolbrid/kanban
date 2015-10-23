@@ -5,43 +5,10 @@ class KanbansController < ApplicationController
   include ActionView::Helpers::DateHelper
 
   def board
-    Octokit.auto_paginate = true
+    builder = KanbanBoardBuilder.new
+    board =  builder.build(current_user, params[:id])
 
-    @board = Board.includes(:repositories, :stages).where(slug: params[:id]).first
-    repos = @board.repositories
-    stages = @board.stages
-
-    client = Octokit::Client.new(access_token: current_user.token)
-
-    repos.each do |repo|
-      milestones = client.list_milestones(repo.url, state: 'all')
-      milestone = milestones.select {|m| m.title == @board.milestone}
-
-      next if milestone.first.nil?
-
-      @board.due_date = milestone.first.due_on if @board.due_date.nil?
-
-      issues = client.issues(repo.url, milestone: milestone.first.number, state: 'all', per_page: 100, direction: 'asc')
-      issues.each do |issue|
-        card = Card.new
-        card.number = issue.number
-        card.title = issue.title
-        card.html_url = issue.html_url
-        card.stage = assign_card_stage(issue, stages)
-        card.repo_url = repo.url
-        card.stage.cards << card
-
-        card.labels = issue.labels.select do |label|
-          stage = stages.find{|stage| stage.github_label == label.name }
-          stage.nil?
-        end
-
-        card.assignee = issue.assignee.nil? ? "NA" : issue.assignee.login
-        card.assignee_avatar_url = issue.assignee.nil? ? "NA" : issue.assignee.avatar_url
-      end
-    end
-
-    render json: @board.to_json(include: [:repositories, :stages => { :include => :cards}])
+    render json: board.to_json(include: [:repositories, :stages => { :include => :cards}])
   end
 
   def move_card
@@ -58,20 +25,4 @@ class KanbansController < ApplicationController
 
     render json: issue.number
   end
-
-  private
-    def assign_card_stage(issue, stages)
-      if issue.state == "open"
-        stage = stages.find do |stage|
-          lbl = issue.labels.find{ |label| label.name == stage.github_label }
-          !lbl.nil?
-        end
-
-        stage = stages.first if stage.nil?
-      else
-        stage = stages.last
-      end
-
-      stage
-    end
 end
