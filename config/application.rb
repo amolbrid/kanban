@@ -21,5 +21,10 @@ module GhiKanban
     # config.i18n.default_locale = :de
 
     config.react.addons = true
+
+    # Add bower assets to the path
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
+
+    config.assets.precompile += %w(*.svg *.eot *.woff *.ttf)
   end
 end

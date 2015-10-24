@@ -252,6 +252,7 @@ var Card = React.createClass({
             {this.props.card.assignee ? this.props.card.assignee : 'NA'}
           </span>
           <div className="pull-right">
+            <span className={this.props.card.is_pull_request ? "octicon octicon-git-pull-request" : ''}></span>
             <a href={this.props.card.html_url} target="_blank">&#35;{this.props.card.number}</a>
           </div>
         </div>
