@@ -47,8 +47,11 @@ class BoardsController < ApplicationController
 
   def update
     @board = Board.friendly.find(params[:id])
-    @board.update_attributes(board_params)
-    redirect_to session[:return_to] || board_path(@board)
+    if @board.update_attributes(board_params)
+      redirect_to session[:return_to] || board_path(@board)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -82,7 +85,7 @@ class BoardsController < ApplicationController
 
   private
     def board_params
-      params.require(:board).permit(:name, :milestone, :is_public,
+      params.require(:board).permit(:name, :milestone, :is_public, :move_other_issues, :move_closed_issues,
                                 repositories_attributes: [:id, :url, :_destroy],
                                 stages_attributes: [:id, :name, :github_label, :ui_sort_order, :_destroy])
     end

@@ -46,6 +46,20 @@
   .col-sm-offset-2.col-sm-10
     = f.link_to_add "Add a stage", :stages, data:{ target: "#stages" }, class:'btn btn-default'
 
+.form-group
+  .col-sm-offset-2.col-sm-10
+    .checkbox
+      = f.label :move_other_issues do
+        = f.check_box :move_other_issues
+        Move other labeled issues to first stage.
+.form-group
+  .col-sm-offset-2.col-sm-10
+    .checkbox
+      = f.label :move_closed_issues do
+        = f.check_box :move_closed_issues
+        Move closed issues to last stage.
+
+
 %hr
 
 :javascript
