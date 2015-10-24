@@ -58,7 +58,7 @@ class KanbanBoardBuilder
     card.repo_url = repo.url
     card.labels = other_labels_of_issue(issue)
     card.assignee = issue.assignee.nil? ? "NA" : issue.assignee.login
-    card.assignee_avatar_url = issue.assignee.nil? ? "NA" : issue.assignee.avatar_url
+    card.assignee_avatar_url = issue.assignee.nil? ? "/octoface.png" : issue.assignee.avatar_url
     card.is_pull_request = issue[:pull_request].present?
 
     stage = find_issue_stage(issue, @board.stages)
