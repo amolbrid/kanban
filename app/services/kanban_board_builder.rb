@@ -57,7 +57,7 @@ class KanbanBoardBuilder
     card.html_url = issue.html_url
     card.repo_url = repo.url
     card.labels = other_labels_of_issue(issue)
-    card.assignee = issue.assignee.nil? ? "NA" : issue.assignee.login
+    card.assignee = issue.assignee.nil? ? "Not Assigned" : issue.assignee.login
     card.assignee_avatar_url = issue.assignee.nil? ? "/octoface.png" : issue.assignee.avatar_url
     card.is_pull_request = issue[:pull_request].present?
 
