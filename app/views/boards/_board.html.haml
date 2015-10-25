@@ -23,7 +23,7 @@
         .col-sm-4
           = repo_form.text_field :url, class: 'form-control', placeholder: 'e.g. collectivemedia/reachui'
         .col-sm-3
-          = repo_form.link_to_remove "X", class:'btn btn-danger'
+          = repo_form.link_to_remove "", class:'btn btn-danger fa fa-trash'
 .form-group
   .col-sm-offset-2.col-sm-10
     = f.link_to_add "Add a repo", :repositories, data:{ target: "#repos" }, class:'btn btn-default'
@@ -41,7 +41,7 @@
           = stage_form.text_field :name, class: 'form-control', placeholder: 'Stage name'
           = stage_form.hidden_field :ui_sort_order, class: 'form-control ui-sort', placeholder: 'Sort order'
         .col-sm-3
-          = stage_form.link_to_remove "X", class:'btn btn-danger'
+          = stage_form.link_to_remove "", class:'btn btn-danger fa fa-trash'
 .form-group
   .col-sm-offset-2.col-sm-10
     = f.link_to_add "Add a stage", :stages, data:{ target: "#stages" }, class:'btn btn-default'
