@@ -24,14 +24,16 @@ $ bundle exec rails s
 Screenshot
 --
 
-Kanban board of this project:
+__Kanban board of this project:__
 
 ![Kanban](/public/this_project.png)
 
-Kanban board of rails project with major components as swimlane. 
+
+__Kanban board of Rails project with major components as swimlane:__
 
 ![Rails project](/public/rails_project.png)
 
-Filter by user:
+
+__Filter by user:__
 
 ![Rails project filter](/public/rails_project_1.png)
