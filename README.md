@@ -26,12 +26,12 @@ Screenshot
 
 Kanban board of this project:
 
-![Kanban][/public/this_project.png]
+![Kanban](/public/this_project.png)
 
 Kanban board of rails project with major components as swimlane. 
 
-![Rails project][/public/rails_project.png]
+![Rails project](/public/rails_project.png)
 
 Filter by user:
 
-![Rails project filter][/public/rails_peoject_1.png]
+![Rails project filter](/public/rails_project_1.png)
