@@ -534,7 +534,7 @@ var Board = React.createClass({
           <div className="col-sm-6">
             <h4 className="board-name">
               {this.state.data.name}
-              <span className="small due-date">&nbsp;&nbsp;Due on {this.state.data.due_date}</span>
+              <span className="small due-date">&nbsp;&nbsp;{this.state.data.due_date}</span>
             </h4>
           </div>
 
